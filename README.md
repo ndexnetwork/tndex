@@ -21,10 +21,14 @@ Coin Symbol: NDX
 Coin Supply: 1B
 
 Coin Supply to nDEX Network: 900M
+-------------------
+
 API server port: 6868
+
 Peer port: 6899
 ---------------
 Testnet API port: 6876
+
 Testnet peer port: 6898
 
 
