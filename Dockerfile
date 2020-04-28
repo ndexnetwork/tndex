@@ -21,7 +21,7 @@ RUN apt-get update && \
     update-ca-certificates -f;
 
 RUN apt-get install gnupg2  -y
-RUN gpg2 --keyserver hkp://pool.sks-keyservers.net --recv-keys 75CEBDE82D6BECC940EC0D22B3E38C4A2BBDBA1E
+RUN gpg2  --recv-keys 75CEBDE82D6BECC940EC0D22B3E38C4A2BBDBA1E
 
 
 RUN mkdir /ndex
@@ -29,12 +29,12 @@ ADD . /ndex
 
 
 # set ndex to listen on all interfaces
-RUN echo 'nxt.allowedBotHosts=*' >> /ndex/conf/nxt.properties
-RUN echo 'nxt.apiServerHost=0.0.0.0' >> /ndex/conf/nxt.properties
+RUN echo 'nxt.allowedBotHosts=*' >> /ndex/conf/nxt-default.properties
+RUN echo 'nxt.apiServerHost=0.0.0.0' >> /ndex/conf/nxt-default.properties
 #RUN chmod +x /docker_start.sh
 
 RUN cd /ndex; ./compile.sh
 
 # both ndex ports get exposed
-EXPOSE 6899 6868
+EXPOSE 6898 6876
 CMD ["/ndex/docker_start.sh"]
