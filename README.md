@@ -1,5 +1,5 @@
 ----
-# nDEX Network | A Blockchain Business Development Platform #
+# nDEX Network | A Blockchain Business Development Platform [ Test Net ] #
 [![Docker Stars](https://img.shields.io/docker/stars/ndexnetwork/ndex.svg)](https://hub.docker.com/r/ndexnetwork/ndex?style=flat)
 [![Docker Pulls](https://img.shields.io/docker/pulls/ndexnetwork/ndex.svg)](https://hub.docker.com/r/ndexnetwork/ndex?style=flat)
 ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/ndexnetwork/ndex?label=nDEX%20%7C%20docker%20build&style=flat)
@@ -21,12 +21,13 @@ Coin Symbol: NDX
 Coin Supply: 1B
 
 Coin Supply to nDEX Network: 900M
-
+API server port: 6868
 Peer port: 6899
-
+---------------
+Testnet API port: 6876
 Testnet peer port: 6898
 
-API server port: 6868
+
 
 ### Website of the project: [nDEX Network](https://ndexnetwork.com)
 
@@ -43,6 +44,10 @@ https://ndxlive.npay.life
 https://ndxeco.npay.life
 
 https://ndxworld.npay.life
+
+
+### Well known SEED/Wallet for testnet:
+https://test.npay.life
 
 ## ndex-node client is out [get it](https://github.com/ndexnetwork/ndex-node)
 
