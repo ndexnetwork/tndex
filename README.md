@@ -1,14 +1,14 @@
 ----
 # nDEX Network | A Blockchain Business Development Platform [ Test Net ] #
-[![Docker Stars](https://img.shields.io/docker/stars/ndexnetwork/ndex.svg)](https://hub.docker.com/r/ndexnetwork/ndex?style=flat)
-[![Docker Pulls](https://img.shields.io/docker/pulls/ndexnetwork/ndex.svg)](https://hub.docker.com/r/ndexnetwork/ndex?style=flat)
-![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/ndexnetwork/ndex?label=nDEX%20%7C%20docker%20build&style=flat)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/ndexnetwork/ndex?style=flat)
+[![Docker Stars](https://img.shields.io/docker/stars/ndexnetwork/tndex.svg)](https://hub.docker.com/r/ndexnetwork/tndex?style=flat)
+[![Docker Pulls](https://img.shields.io/docker/pulls/ndexnetwork/tndex.svg)](https://hub.docker.com/r/ndexnetwork/tndex?style=flat)
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/ndexnetwork/tndex?label=nDEX%20%7C%20docker%20build&style=flat)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/ndexnetwork/tndex?style=flat)
 
 ----
 ## What is NDX? ##
 NDX is a cryptocurrency to make the world a better place.
-See [LICENSE](https://raw.githubusercontent.com/ndexnetwork/nDEX/master/.github/LICENSE)
+See [LICENSE](https://raw.githubusercontent.com/ndexnetwork/tndex/master/.github/LICENSE)
 
 ----
 
@@ -20,13 +20,13 @@ Coin Symbol: NDX
 
 Coin Supply: 1B
 
-Coin Supply to nDEX Network: 900M
+Coin Supply: 900M
 -------------------
-
+### Ports
 API server port: 6868
 
 Peer port: 6899
----------------
+
 Testnet API port: 6876
 
 Testnet peer port: 6898
@@ -36,10 +36,6 @@ Testnet peer port: 6898
 ### Website of the project: [nDEX Network](https://ndexnetwork.com)
 
 ### Well known SEED or Web wallets:
-
-https://ndxseed.npay.life
-
-https://ndx.npay.life
 
 https://ndxdaily.npay.life
 
@@ -66,8 +62,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker run --name ndex -d \
  --volume nxt_db:/root/.nDEX \
  -p 0.0.0.0:80:6868 \
- --publish 6899:6899 \
- --publish 6868:6868 \
+ --publish 6898:6898 \
+ --publish 6876:6876 \
 ndexnetwork/ndex
 
 
@@ -75,23 +71,23 @@ ndexnetwork/ndex
 ```
 
 ### Open JDK works FINE!!
+### Compile it! ##
+----
+  - if necessary with: `./compile.sh`
+  - you need jdk-8/openjdk-8 as well 
+
 ----
 ### Run it! ##
 
   - click on the NDX icon, or start from the command line:
-  - linux: `./start.sh`
+  - linux: `./start.sh` or ./run.sh
   - Window: `run.bat`
 
   - wait for the JavaFX wallet window to open
-  - on platforms without JavaFX, open http://localhost:6868/ in a browser
+  - on platforms without JavaFX, open http://localhost:6876/ in a browser
 
 ----
-### Compile it! ##
 
-  - if necessary with: `./compile.sh`
-  - you need jdk-8 as well [Use openjdk (Linux users)]
-
-----
 ## Troubleshooting the NDX Server ##
 
   - How to Stop the NDX Server?
