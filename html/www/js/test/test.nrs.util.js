@@ -1,12 +1,12 @@
 /******************************************************************************
- * Copyright © 2013-2016 The Nxt Core Developers.                             *
+ * Copyright © 2013-2016 The Ndx Core Developers.                             *
  * Copyright © 2016-2019 Jelurida IP B.V.                                     *
  *                                                                            *
  * See the LICENSE.txt file at the top-level directory of this distribution   *
  * for licensing information.                                                 *
  *                                                                            *
  * Unless otherwise agreed in a custom licensing agreement with Jelurida B.V.,*
- * no part of the Nxt software, including this file, may be copied, modified, *
+ * no part of the Ndx software, including this file, may be copied, modified, *
  * propagated, or distributed except according to the terms contained in the  *
  * LICENSE.txt file.                                                          *
  *                                                                            *
@@ -16,18 +16,18 @@
 
 QUnit.module("nrs.util");
 
-QUnit.test("convertToNXT", function (assert) {
-    assert.equal(NRS.convertToNXT(200000000), "2", "whole");
-    assert.equal(NRS.convertToNXT(20000000), "0.2", "fraction");
-    assert.equal(NRS.convertToNXT(-200000000), "-2", "negative");
-    assert.equal(NRS.convertToNXT(-20000000), "-0.2", "fraction.negative");
-    assert.equal(NRS.convertToNXT(-220000000), "-2.2", "whole.fraction.negative");
-    assert.equal(NRS.convertToNXT(2), "0.00000002", "nqt");
-    assert.equal(NRS.convertToNXT(-2), "-0.00000002", "nqt.negative");
-    assert.equal(NRS.convertToNXT(new BigInteger(String(2))), "0.00000002", "input.object");
-    assert.equal(NRS.convertToNXT("hi"), "0.00000188", "alphanumeric"); // strange behavior of BigInteger don't do that
+QUnit.test("convertToNDX", function (assert) {
+    assert.equal(NRS.convertToNDX(200000000), "2", "whole");
+    assert.equal(NRS.convertToNDX(20000000), "0.2", "fraction");
+    assert.equal(NRS.convertToNDX(-200000000), "-2", "negative");
+    assert.equal(NRS.convertToNDX(-20000000), "-0.2", "fraction.negative");
+    assert.equal(NRS.convertToNDX(-220000000), "-2.2", "whole.fraction.negative");
+    assert.equal(NRS.convertToNDX(2), "0.00000002", "nqt");
+    assert.equal(NRS.convertToNDX(-2), "-0.00000002", "nqt.negative");
+    assert.equal(NRS.convertToNDX(new BigInteger(String(2))), "0.00000002", "input.object");
+    assert.equal(NRS.convertToNDX("hi"), "0.00000188", "alphanumeric"); // strange behavior of BigInteger don't do that
     assert.throws(function () {
-        NRS.convertToNXT(null);
+        NRS.convertToNDX(null);
     }, {
         "message": "Cannot read property 'compareTo' of null",
         "name": "TypeError"
@@ -186,21 +186,21 @@ QUnit.test("getAccountLink", function (assert) {
     NRS.contacts = {};
 
     assert.equal(NRS.getAccountLink({}, "dummy"), "/", "non.existing");
-    assert.equal(NRS.getAccountLink({ entity: 5873880488492319831 }, "entity"), "<a href='#' data-user='NXT-XKA2-7VJU-VZSY-7R335' class='show_account_modal_action user-info'>/</a>", "numeric");
-    assert.equal(NRS.getAccountLink({ entityRS: "NXT-XK4R-7VJU-6EQG-7R335" }, "entity"), "<a href='#' data-user='NXT-XK4R-7VJU-6EQG-7R335' class='show_account_modal_action user-info'>NXT-XK4R-7VJU-6EQG-7R335</a>", "RS");
-    assert.equal(NRS.getAccountLink({ entity: 5873880488492319831, entityRS: "NXT-XK4R-7VJU-6EQG-7R335" }, "entity"), "<a href='#' data-user='NXT-XK4R-7VJU-6EQG-7R335' class='show_account_modal_action user-info'>NXT-XK4R-7VJU-6EQG-7R335</a>", "numeric.and.RS");
-    NRS.contacts = { "NXT-XK4R-7VJU-6EQG-7R335": { name: "foo" }};
-    assert.equal(NRS.getAccountLink({ entityRS: "NXT-XK4R-7VJU-6EQG-7R335" }, "entity"), "<a href='#' data-user='NXT-XK4R-7VJU-6EQG-7R335' class='show_account_modal_action user-info'>foo</a>", "contact");
-    NRS.accountRS = "NXT-XK4R-7VJU-6EQG-7R335";
-    assert.equal(NRS.getAccountLink({ entityRS: "NXT-XK4R-7VJU-6EQG-7R335" }, "entity"), "<a href='#' data-user='NXT-XK4R-7VJU-6EQG-7R335' class='show_account_modal_action user-info'>You</a>", "you");
-    assert.equal(NRS.getAccountLink({ entityRS: "NXT-XK4R-7VJU-6EQG-7R335" }, "entity", "NXT-XK4R-7VJU-6EQG-7R335", "account"), "<a href='#' data-user='NXT-XK4R-7VJU-6EQG-7R335' class='show_account_modal_action user-info'>Account</a>", "force.account.name");
-    assert.equal(NRS.getAccountLink({ entityRS: "NXT-XK4R-7VJU-6EQG-7R335" }, "entity", undefined, undefined, true), "<a href='#' data-user='NXT-XK4R-7VJU-6EQG-7R335' class='show_account_modal_action user-info'>NXT-XK4R-7VJU-6EQG-7R335</a>", "maintain.rs.format");
-    assert.equal(NRS.getAccountLink({ entityRS: "NXT-XK4R-7VJU-6EQG-7R335" }, "entity", undefined, undefined, undefined, "btn btn-xs"), "<a href='#' data-user='NXT-XK4R-7VJU-6EQG-7R335' class='show_account_modal_action user-info btn btn-xs'>You</a>", "add.class");
+    assert.equal(NRS.getAccountLink({ entity: 5873880488492319831 }, "entity"), "<a href='#' data-user='NDX-XKA2-7VJU-VZSY-7R335' class='show_account_modal_action user-info'>/</a>", "numeric");
+    assert.equal(NRS.getAccountLink({ entityRS: "NDX-XK4R-7VJU-6EQG-7R335" }, "entity"), "<a href='#' data-user='NDX-XK4R-7VJU-6EQG-7R335' class='show_account_modal_action user-info'>NDX-XK4R-7VJU-6EQG-7R335</a>", "RS");
+    assert.equal(NRS.getAccountLink({ entity: 5873880488492319831, entityRS: "NDX-XK4R-7VJU-6EQG-7R335" }, "entity"), "<a href='#' data-user='NDX-XK4R-7VJU-6EQG-7R335' class='show_account_modal_action user-info'>NDX-XK4R-7VJU-6EQG-7R335</a>", "numeric.and.RS");
+    NRS.contacts = { "NDX-XK4R-7VJU-6EQG-7R335": { name: "foo" }};
+    assert.equal(NRS.getAccountLink({ entityRS: "NDX-XK4R-7VJU-6EQG-7R335" }, "entity"), "<a href='#' data-user='NDX-XK4R-7VJU-6EQG-7R335' class='show_account_modal_action user-info'>foo</a>", "contact");
+    NRS.accountRS = "NDX-XK4R-7VJU-6EQG-7R335";
+    assert.equal(NRS.getAccountLink({ entityRS: "NDX-XK4R-7VJU-6EQG-7R335" }, "entity"), "<a href='#' data-user='NDX-XK4R-7VJU-6EQG-7R335' class='show_account_modal_action user-info'>You</a>", "you");
+    assert.equal(NRS.getAccountLink({ entityRS: "NDX-XK4R-7VJU-6EQG-7R335" }, "entity", "NDX-XK4R-7VJU-6EQG-7R335", "account"), "<a href='#' data-user='NDX-XK4R-7VJU-6EQG-7R335' class='show_account_modal_action user-info'>Account</a>", "force.account.name");
+    assert.equal(NRS.getAccountLink({ entityRS: "NDX-XK4R-7VJU-6EQG-7R335" }, "entity", undefined, undefined, true), "<a href='#' data-user='NDX-XK4R-7VJU-6EQG-7R335' class='show_account_modal_action user-info'>NDX-XK4R-7VJU-6EQG-7R335</a>", "maintain.rs.format");
+    assert.equal(NRS.getAccountLink({ entityRS: "NDX-XK4R-7VJU-6EQG-7R335" }, "entity", undefined, undefined, undefined, "btn btn-xs"), "<a href='#' data-user='NDX-XK4R-7VJU-6EQG-7R335' class='show_account_modal_action user-info btn btn-xs'>You</a>", "add.class");
     NRS.contacts = null;
     NRS.accountRS = null;
     NRS.constants.GENESIS = 1739068987193023818;
-    NRS.constants.GENESIS_RS = "NXT-MR8N-2YLS-3MEQ-3CMAJ";
-    assert.equal(NRS.getAccountLink({ entityRS: NRS.constants.GENESIS_RS }, "entity"), "<a href='#' data-user='NXT-MR8N-2YLS-3MEQ-3CMAJ' class='show_account_modal_action user-info'>Genesis</a>", "genesis");
+    NRS.constants.GENESIS_RS = "NDX-MR8N-2YLS-3MEQ-3CMAJ";
+    assert.equal(NRS.getAccountLink({ entityRS: NRS.constants.GENESIS_RS }, "entity"), "<a href='#' data-user='NDX-MR8N-2YLS-3MEQ-3CMAJ' class='show_account_modal_action user-info'>Genesis</a>", "genesis");
 });
 
 QUnit.test("generateToken", function (assert) {
@@ -256,13 +256,13 @@ QUnit.test("numberOfDecimals", function (assert) {
 });
 
 QUnit.test("accountMatching", function (assert) {
-    var regex = NRS.getRsAccountRegex("NXT");
-    assert.equal(NRS.isRsAccountImpl("NXT-XK4R-7VJU-6EQG-7R335", regex), true, "valid.account");
-    assert.equal(NRS.isRsAccountImpl("Nxt-xk4r-7VJU-6EQG-7R335", regex), true, "not.case.sensitive");
-    assert.equal(NRS.isRsAccountImpl("NXT-XK4R-7VJU-6EQG-7R336", regex), true, "nor.rs.valid.still.valid");
+    var regex = NRS.getRsAccountRegex("NDX");
+    assert.equal(NRS.isRsAccountImpl("NDX-XK4R-7VJU-6EQG-7R335", regex), true, "valid.account");
+    assert.equal(NRS.isRsAccountImpl("Ndx-xk4r-7VJU-6EQG-7R335", regex), true, "not.case.sensitive");
+    assert.equal(NRS.isRsAccountImpl("NDX-XK4R-7VJU-6EQG-7R336", regex), true, "nor.rs.valid.still.valid");
     assert.equal(NRS.isRsAccountImpl("5873880488492319831", regex), false, "numeric.no.match");
-    assert.equal(NRS.isRsAccountImpl("NXT-____-____-____-_____", regex), true, "underscore_mask_again");
+    assert.equal(NRS.isRsAccountImpl("NDX-____-____-____-_____", regex), true, "underscore_mask_again");
     regex = NRS.getNumericAccountRegex();
-    assert.equal(NRS.isNumericAccountImpl("NXT-XK4R-7VJU-6EQG-7R335", regex), false, "non.numeric.no.match");
+    assert.equal(NRS.isNumericAccountImpl("NDX-XK4R-7VJU-6EQG-7R335", regex), false, "non.numeric.no.match");
     assert.equal(NRS.isNumericAccountImpl("5873880488492319831", regex), true, "numeric.match");
 });
