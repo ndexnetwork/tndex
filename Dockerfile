@@ -29,8 +29,8 @@ ADD . /tndex
 
 
 # set ndex to listen on all interfaces
-RUN echo 'nxt.allowedBotHosts=*' >> /tndex/conf/nxt.properties
-RUN echo 'nxt.apiServerHost=0.0.0.0' >> /tndex/conf/nxt.properties
+#RUN echo 'nxt.allowedBotHosts=*' >> /tndex/conf/nxt.properties
+#RUN echo 'nxt.apiServerHost=0.0.0.0' >> /tndex/conf/nxt.properties
 #RUN chmod +x /docker_start.sh
 
 RUN cd /tndex; ./compile.sh
