@@ -7,7 +7,6 @@
 /webapps/
 /classes/
 /nxt_test_db
-/conf
 /mobile
 /*.log
 /*.log.*
