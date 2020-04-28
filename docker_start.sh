@@ -1,2 +1,2 @@
 #!/bin/bash
-cd /ndex; ./run.sh
+cd /tndex; ./run.sh

@@ -24,17 +24,17 @@ RUN apt-get install gnupg2  -y
 RUN gpg2  --recv-keys 75CEBDE82D6BECC940EC0D22B3E38C4A2BBDBA1E
 
 
-RUN mkdir /ndex
-ADD . /ndex
+RUN mkdir /tndex
+ADD . /tndex
 
 
 # set ndex to listen on all interfaces
-RUN echo 'nxt.allowedBotHosts=*' >> /ndex/conf/nxt-default.properties
-RUN echo 'nxt.apiServerHost=0.0.0.0' >> /ndex/conf/nxt-default.properties
+RUN echo 'nxt.allowedBotHosts=*' >> /tndex/conf/nxt.properties
+RUN echo 'nxt.apiServerHost=0.0.0.0' >> /tndex/conf/nxt.properties
 #RUN chmod +x /docker_start.sh
 
-RUN cd /ndex; ./compile.sh
+RUN cd /tndex; ./compile.sh
 
 # both ndex ports get exposed
 EXPOSE 6898 6876
-CMD ["/ndex/docker_start.sh"]
+CMD ["/tndex/docker_start.sh"]
